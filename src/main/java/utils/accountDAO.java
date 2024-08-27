@@ -70,7 +70,7 @@ public class accountDAO {
         }
     }
 
-    static public void passwordChange(int user_id, String password){
+    static public void passwordChange(String str_user_id, String password){
         String sql = "UPDATE account SET password = ?, password_flg = false, WHERE user_id = ?";
 
         try(
@@ -79,7 +79,7 @@ public class accountDAO {
         ) {
             String hashPw = GenerateHash.getHashPw(password);
             pstmt.setString(1, hashPw);
-            pstmt.setInt(2, user_id);
+            pstmt.setString(2, str_user_id);
 
             pstmt.executeUpdate();
         }catch (SQLException e){

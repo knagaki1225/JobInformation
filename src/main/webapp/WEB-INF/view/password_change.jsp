@@ -11,6 +11,10 @@
     <title>Title</title>
 </head>
 <body>
-<h1>password_change</h1>
+    <form action="passwordChangeServlet" method="post">
+        <input type="text" name="current_password" placeholder="現在のパスワード">
+        <input type="text" name="new_password" placeholder="新しいパスワード">
+        <input type="submit" value="送信">
+    </form>
 </body>
 </html>
