@@ -70,8 +70,8 @@ public class accountDAO {
         }
     }
 
-    static public void passwordChange(String str_user_id, String password){
-        String sql = "UPDATE account SET password = ?, password_flg = false, WHERE user_id = ?";
+    static public void passwordChange(int user_id, String password){
+        String sql = "UPDATE account SET password = ?, password_flg = false WHERE user_id = ?";
 
         try(
                 Connection con = DriverManager.getConnection(DB_URL);
@@ -79,7 +79,7 @@ public class accountDAO {
         ) {
             String hashPw = GenerateHash.getHashPw(password);
             pstmt.setString(1, hashPw);
-            pstmt.setString(2, str_user_id);
+            pstmt.setInt(2, user_id);
 
             pstmt.executeUpdate();
         }catch (SQLException e){
