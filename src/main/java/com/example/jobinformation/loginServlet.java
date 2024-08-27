@@ -29,7 +29,7 @@ public class loginServlet extends HttpServlet {
 
         accountBean account =  accountDAO.selectByUser_id(user_id);
         if( GenerateHash.checkPw(password, account.getPassword())){
-            session.setAttribute("account", account);
+            session.setAttribute("account", account.getUser_id());
             if(account.isPassword_flg()){
                 path = "/WEB-INF/view/password_change.jsp";
             } else if(account.getIsAdmin()){
