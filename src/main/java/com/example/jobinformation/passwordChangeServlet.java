@@ -20,10 +20,10 @@ public class passwordChangeServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
-        String path = "/WEB-INF/view/password_change.jsp";
+        String path = "/WEB-INF/view/student_top.jsp";
 
         request.setCharacterEncoding("UTF-8");
-       1 int user_id = Integer.valueOf(session.getAttribute("user_id").toString());
+        int user_id = (Integer) session.getAttribute("user_id");
         String current_password = request.getParameter("current_password");
         String new_password = request.getParameter("new_password");
 
@@ -31,6 +31,9 @@ public class passwordChangeServlet extends HttpServlet {
 
         if (GenerateHash.checkPw(current_password, account.getPassword())) {
             accountDAO.passwordChange(user_id, new_password);
+            if(account.getIsAdmin()){
+                path = "/WEB-INF/view/admin_top.jsp";
+            }
         } else {
             response.sendRedirect("/WEB-INF/view/password_change.jsp");
         }
