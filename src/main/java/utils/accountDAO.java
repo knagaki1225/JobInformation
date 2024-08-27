@@ -54,17 +54,35 @@ public class accountDAO {
     }
 
     static public void update(int user_id, String user_name, boolean password_flg) {
-        String sql = "UPDATE account SET user_name = ?, password_flg = true WHERE user_id = ?";
+        String sql = "UPDATE account SET user_name = ?, password_flg = ? WHERE user_id = ?";
 
         try (
                 Connection con = DriverManager.getConnection(DB_URL);
                 PreparedStatement pstmt = con.prepareStatement(sql);
         ) {
             pstmt.setString(1, user_name);
-            pstmt.setInt(2, user_id);
+            pstmt.setBoolean(2, password_flg);
+            pstmt.setInt(3, user_id);
 
             pstmt.executeUpdate();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static public void passwordChange(int user_id, String password){
+        String sql = "UPDATE account SET password = ?, password_flg = false, WHERE user_id = ?";
+
+        try(
+                Connection con = DriverManager.getConnection(DB_URL);
+                PreparedStatement pstmt = con.prepareStatement(sql);
+        ) {
+            String hashPw = GenerateHash.getHashPw(password);
+            pstmt.setString(1, hashPw);
+            pstmt.setInt(2, user_id);
+
+            pstmt.executeUpdate();
+        }catch (SQLException e){
             throw new RuntimeException(e);
         }
     }
