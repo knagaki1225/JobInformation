@@ -29,13 +29,15 @@ public class loginServlet extends HttpServlet {
 
         accountBean account =  accountDAO.selectByUser_id(user_id);
         if( GenerateHash.checkPw(password, account.getPassword())){
-            if(account.getIsAdmin()){
+
+            if(account.isPassword_flg()){
+                path = "/WEB-INF/view/password_change.jsp";
+            } else if(account.getIsAdmin()){
                 path = "/WEB-INF/view/admin_top.jsp";
             }else{
                 path = "/WEB-INF/view/student_top.jsp";
             }
         }
-
         RequestDispatcher dispatcher = request.getRequestDispatcher(path);
         dispatcher.forward(request, response);
     }
