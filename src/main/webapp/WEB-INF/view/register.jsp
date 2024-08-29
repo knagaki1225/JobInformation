@@ -105,27 +105,22 @@ contentType="text/html;charset=UTF-8" language="java" %>
   </head>
   <body>
     <div class="login-container">
-      <form class="login-form">
+      <form class="login-form" action="accountRegisterServlet" method="post">
         <%--@declare id="password"--%>
         <h2>ユーザ登録</h2>
         <label for="id">ID</label>
-        <input type="text" id="id" placeholder="" />
+        <input type="text" id="id" placeholder=""  name="user_id" />
         <label for="password">名前</label>
-        <input type="text" id="text" placeholder="" />
+        <input type="text" id="text" placeholder="" name="password" />
         <div class="checkbox-container">
-          <input type="checkbox" id="admin-checkbox" />
+          <input type="checkbox" id="admin-checkbox" name="isAdmin" />
           <label for="admin-checkbox">この利用者を管理者にする</label>
         </div>
-        <table class="button-table">
-          <tr>
-            <td>
-              <button type="button" class="cancel">キャンセル</button>
-            </td>
-            <td>
-              <button type="button" class="completion">完了</button>
-            </td>
-          </tr>
-        </table>
+        <div>
+          <button type="button" class="cancel">キャンセル</button>
+          <input type="submit" value="送信">
+        </div>
+
       </form>
     </div>
   </body>

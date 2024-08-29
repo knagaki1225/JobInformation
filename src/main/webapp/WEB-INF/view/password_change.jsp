@@ -73,7 +73,7 @@ contentType="text/html;charset=UTF-8" language="java" %>
   </head>
   <body>
     <div class="password_change-container">
-      <form class="password_change-form">
+      <form class="password_change-form" action="passwordChangeServlet">
         <h2>パスワードを変更</h2>
         <label for="current_password">現在のパスワード</label>
         <input type="text" id="current_password" />

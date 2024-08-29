@@ -39,8 +39,6 @@ public class accountRegisterServlet extends HttpServlet {
 
         accountDAO.insert(account);
 
-        response.sendRedirect("");
-
-
+        response.sendRedirect("/WEB-INF/view/admin_top.jsp");
     }
 }

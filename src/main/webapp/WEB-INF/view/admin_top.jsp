@@ -96,7 +96,7 @@ contentType="text/html;charset=UTF-8" language="java" %>
       </div>
       <div class="btn_row">
         <a href="#" class="top_btn user_list">ユーザ情報一覧</a>
-        <a href="#" class="top_btn user_register">ユーザ情報登録</a>
+        <a href="accountRegisterServlet" class="top_btn user_register">ユーザ情報登録</a>
       </div>
     </div>
   </body>
