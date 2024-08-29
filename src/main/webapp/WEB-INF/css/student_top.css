@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+a {
+    display: block;
+}
+
+.center {
+    text-align: center;
+}
+
+.flex {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.student_top_text {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.logout_btn {
+    position: absolute;
+    right: 0;
+}
+
+.job_search {
+    border: 1px solid #a4fbb2;
+    border-radius: 8px;
+    background-color: var(--button-color);
+    height: 12rem;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5% 0;
+
+    text-decoration: none;
+    font-size: 27px;
+    color: #000;
+}
+
+
+
+.list {
+    margin:  0 auto;
+    font-size: large;
+}
+
+.list , tr , th , td {
+    border: 1px solid #808080;
+    border-collapse: collapse;
+}
+
+.id {
+    padding: 0px 5px;
+}
+
+.company_name {
+    padding: 0 150px;
+}
+
+.region {
+    padding: 0 70px;
+}
+
+.industry {
+    padding: 0 40px;
+}
+
+.year {
+    padding: 0 30px;
+}
+
+th {
+    background-color: #E6E6E6;
+}
+
+.text_history {
+    margin-top: 70px;
+    margin-left: 22rem;
+    font-size: 22px;
+}

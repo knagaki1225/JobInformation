@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+.top_text {
+    margin: 3% auto;
+}
+
+a {
+    display: block;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.top_btn {
+    text-decoration: none;
+    background-color: #D9D9D9;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 17rem;
+    height: 14rem;
+    margin-left: 17.5%;
+    font-size: 24px;
+    color: #000;
+}
+
+.flex_top_btn {
+    line-height: 13.5em;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 4.7em;
+}
+
+.user_list , .user_register {
+    background-image: url(./img/user.png);
+    background-size: cover;
+}
+
+.job_list , .job_register {
+    background-image: url(./img/document.png);
+    background-size: cover;
+}
