@@ -97,6 +97,7 @@ To change this template use File | Settings | File Templates. --%> <%@ page
 
         <button type="submit">ログイン</button>
     </form>
+    <a href="accountRegisterServlet">アカウント登録はこちら</a>
 </div>
 </body>
 </html>

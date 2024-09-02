@@ -40,7 +40,7 @@ public class accountRegisterServlet extends HttpServlet {
         accountDAO.insert(account);
 
 
-        String path = "/WEB-INF/view/admin_top.jsp";
+        String path = "";
         RequestDispatcher dispatcher = request.getRequestDispatcher(path);
         dispatcher.forward(request, response);
     }
