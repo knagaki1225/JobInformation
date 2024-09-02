@@ -27,10 +27,10 @@ public class accountRegisterServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         int user_id = Integer.parseInt(request.getParameter("user_id"));
         String user_name = request.getParameter("user_name");
-        String password = request.getParameter("user_id");
+        String password = GenerateHash.getHashPw("" + user_id);
         boolean isAdmin = true;
         if(request.getParameter("isAdmin") == null){
-           isAdmin = false;
+            isAdmin = false;
         }
         int favorite_cnt = 0;
         boolean password_flg = true;
@@ -39,6 +39,9 @@ public class accountRegisterServlet extends HttpServlet {
 
         accountDAO.insert(account);
 
-        response.sendRedirect("/WEB-INF/view/admin_top.jsp");
+
+        String path = "/WEB-INF/view/admin_top.jsp";
+        RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+        dispatcher.forward(request, response);
     }
 }

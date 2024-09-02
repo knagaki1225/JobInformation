@@ -13,8 +13,9 @@ public class accountDAO {
         ) {
             pstmt.setInt(1, account.getUser_id());
             pstmt.setString(2, account.getUser_name());
-            String hashPw = GenerateHash.getHashPw(Integer.toString(account.getUser_id())); // IDをハッシュ化して初期パスワードとする
-            pstmt.setString(3, hashPw);
+//            String hashPw = GenerateHash.getHashPw(Integer.toString(account.getUser_id())); // IDをハッシュ化して初期パスワードとする
+//            pstmt.setString(3, hashPw);
+            pstmt.setString(3, account.getPassword());
             pstmt.setBoolean(4, account.getIsAdmin());
 
             pstmt.executeUpdate();
